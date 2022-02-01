@@ -6,16 +6,24 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct AuthenticationView: View {
-    @State var showLogin: Bool = false
+    @State var showLogin: Bool = true
     @State var email: String = ""
     @State var password: String = ""
     @State var editingEmailField: Bool = false
     @State var editingPasswordField: Bool = false
     @State var isRevealed: Bool = false
+    @State var showHome: Bool = false
     
     private let generator = UISelectionFeedbackGenerator()
+    
+    init(){
+        do { try Auth.auth().signOut() }
+        catch { print("already logged out") }
+    }
+
     
     var body: some View {
         ZStack {
@@ -141,8 +149,11 @@ struct AuthenticationView: View {
                         
                         Spacer()
                         
-                        Button(action: {}) {
-                            Text("Get started")
+                        Button(action: {
+                            generator.selectionChanged()
+                            authenticate()
+                        }) {
+                            Text(showLogin ? "Login" : "Sign up")
                                 .font(.title3)
                                 .bold()
                                 .foregroundColor(.white)
@@ -150,6 +161,14 @@ struct AuthenticationView: View {
                         .frame(width: screen.width * 0.8, height: 70)
                         .background(Color(AuthConstant.underlineColor))
                         .clipShape(RoundedRectangle(cornerRadius: 30))
+                        .onAppear {
+                            Auth.auth()
+                                .addStateDidChangeListener { auth, user in
+                                    if user != nil {
+                                        showHome.toggle()
+                                    }
+                                }
+                        }
                     }
                     
                     
@@ -163,13 +182,38 @@ struct AuthenticationView: View {
             .frame(height: screen.height, alignment: .top)
         }
         .edgesIgnoringSafeArea(.all)
+        .fullScreenCover(isPresented: $showHome){
+            HomeView()
+        }
     }
+    
     
     private struct AuthConstant {
         static let authBackground = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
         static let underlineColor = #colorLiteral(red: 0.9803921569, green: 0.2901960784, blue: 0.04705882353, alpha: 1)
         static let underlineColorInactive = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         static let inactiveFieldColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
+    
+    private func authenticate() {
+      if showLogin {
+          Auth.auth().signIn(withEmail: email, password: password){ result, error in
+              guard error == nil else {
+                  print(error!.localizedDescription)
+                  return
+              }
+              print("User is signed in")
+          }
+
+      } else {
+          Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            print("User signed up!")
+        }
+     }
     }
 }
 

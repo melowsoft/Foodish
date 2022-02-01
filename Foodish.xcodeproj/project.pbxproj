@@ -10,6 +10,9 @@
 		EA27EF0127A98392001902FC /* SF-Pro-Rounded-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA27EF0027A98392001902FC /* SF-Pro-Rounded-Medium.ttf */; };
 		EA27EF0427A99E69001902FC /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA27EF0327A99E68001902FC /* SplashScreen.swift */; };
 		EA27EF0627A9A3D9001902FC /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA27EF0527A9A3D9001902FC /* AuthenticationView.swift */; };
+		EA27EF0927A9E497001902FC /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = EA27EF0827A9E497001902FC /* FirebaseAuth */; };
+		EA27EF0B27A9E573001902FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA27EF0A27A9E572001902FC /* GoogleService-Info.plist */; };
+		EA27EF0D27A9EAFB001902FC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA27EF0C27A9EAFB001902FC /* HomeView.swift */; };
 		EA4FF46427A9626B001638EA /* FoodishApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4FF46327A9626B001638EA /* FoodishApp.swift */; };
 		EA4FF46627A9626B001638EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4FF46527A9626B001638EA /* ContentView.swift */; };
 		EA4FF46827A9626D001638EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA4FF46727A9626D001638EA /* Assets.xcassets */; };
@@ -41,6 +44,8 @@
 		EA27EF0227A983D5001902FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EA27EF0327A99E68001902FC /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		EA27EF0527A9A3D9001902FC /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		EA27EF0A27A9E572001902FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EA27EF0C27A9EAFB001902FC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EA4FF46027A9626B001638EA /* Foodish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA4FF46327A9626B001638EA /* FoodishApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodishApp.swift; sourceTree = "<group>"; };
 		EA4FF46527A9626B001638EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA27EF0927A9E497001902FC /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,8 +116,10 @@
 			isa = PBXGroup;
 			children = (
 				EA27EF0227A983D5001902FC /* Info.plist */,
+				EA27EF0A27A9E572001902FC /* GoogleService-Info.plist */,
 				EA27EEFE27A98392001902FC /* CustomFonts */,
 				EA4FF46327A9626B001638EA /* FoodishApp.swift */,
+				EA27EF0C27A9EAFB001902FC /* HomeView.swift */,
 				EA4FF46527A9626B001638EA /* ContentView.swift */,
 				EA27EF0527A9A3D9001902FC /* AuthenticationView.swift */,
 				EA27EF0327A99E68001902FC /* SplashScreen.swift */,
@@ -162,6 +170,9 @@
 			dependencies = (
 			);
 			name = Foodish;
+			packageProductDependencies = (
+				EA27EF0827A9E497001902FC /* FirebaseAuth */,
+			);
 			productName = Foodish;
 			productReference = EA4FF46027A9626B001638EA /* Foodish.app */;
 			productType = "com.apple.product-type.application";
@@ -234,6 +245,9 @@
 				Base,
 			);
 			mainGroup = EA4FF45727A9626B001638EA;
+			packageReferences = (
+				EA27EF0727A9E496001902FC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = EA4FF46127A9626B001638EA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -253,6 +267,7 @@
 				EA27EF0127A98392001902FC /* SF-Pro-Rounded-Medium.ttf in Resources */,
 				EA4FF46B27A9626D001638EA /* Preview Assets.xcassets in Resources */,
 				EA4FF46827A9626D001638EA /* Assets.xcassets in Resources */,
+				EA27EF0B27A9E573001902FC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +295,7 @@
 				EA27EF0427A99E69001902FC /* SplashScreen.swift in Sources */,
 				EA4FF46627A9626B001638EA /* ContentView.swift in Sources */,
 				EA27EF0627A9A3D9001902FC /* AuthenticationView.swift in Sources */,
+				EA27EF0D27A9EAFB001902FC /* HomeView.swift in Sources */,
 				EA4FF46427A9626B001638EA /* FoodishApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,6 +627,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EA27EF0727A9E496001902FC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EA27EF0827A9E497001902FC /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EA27EF0727A9E496001902FC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EA4FF45827A9626B001638EA /* Project object */;
 }
