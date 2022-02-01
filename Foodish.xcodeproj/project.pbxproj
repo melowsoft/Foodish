@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA27EF0127A98392001902FC /* SF-Pro-Rounded-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA27EF0027A98392001902FC /* SF-Pro-Rounded-Medium.ttf */; };
 		EA4FF46427A9626B001638EA /* FoodishApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4FF46327A9626B001638EA /* FoodishApp.swift */; };
 		EA4FF46627A9626B001638EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4FF46527A9626B001638EA /* ContentView.swift */; };
 		EA4FF46827A9626D001638EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA4FF46727A9626D001638EA /* Assets.xcassets */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA27EF0027A98392001902FC /* SF-Pro-Rounded-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Medium.ttf"; sourceTree = "<group>"; };
+		EA27EF0227A983D5001902FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EA4FF46027A9626B001638EA /* Foodish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA4FF46327A9626B001638EA /* FoodishApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodishApp.swift; sourceTree = "<group>"; };
 		EA4FF46527A9626B001638EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +74,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA27EEFE27A98392001902FC /* CustomFonts */ = {
+			isa = PBXGroup;
+			children = (
+				EA27EF0027A98392001902FC /* SF-Pro-Rounded-Medium.ttf */,
+			);
+			path = CustomFonts;
+			sourceTree = "<group>";
+		};
 		EA4FF45727A9626B001638EA = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +105,8 @@
 		EA4FF46227A9626B001638EA /* Foodish */ = {
 			isa = PBXGroup;
 			children = (
+				EA27EF0227A983D5001902FC /* Info.plist */,
+				EA27EEFE27A98392001902FC /* CustomFonts */,
 				EA4FF46327A9626B001638EA /* FoodishApp.swift */,
 				EA4FF46527A9626B001638EA /* ContentView.swift */,
 				EA4FF46727A9626D001638EA /* Assets.xcassets */,
@@ -231,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA27EF0127A98392001902FC /* SF-Pro-Rounded-Medium.ttf in Resources */,
 				EA4FF46B27A9626D001638EA /* Preview Assets.xcassets in Resources */,
 				EA4FF46827A9626D001638EA /* Assets.xcassets in Resources */,
 			);
@@ -422,11 +436,13 @@
 				DEVELOPMENT_TEAM = Z4A3K37782;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Foodish/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,11 +467,13 @@
 				DEVELOPMENT_TEAM = Z4A3K37782;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Foodish/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
