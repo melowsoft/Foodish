@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var goToAuth: Bool = false
+    var viewModel: FoodishViewModel
     
     var body: some View {
         ZStack {
@@ -27,7 +28,9 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let viewModelData = FoodishViewModel()
+        ContentView(viewModel: viewModelData)
+            .preferredColorScheme(.dark)
     }
 }
 

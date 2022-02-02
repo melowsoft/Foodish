@@ -10,6 +10,7 @@ import Firebase
 
 @main
 struct FoodishApp: App {
+    let viewModel = FoodishViewModel()
     
     init() {
         FirebaseApp.configure()
@@ -17,7 +18,7 @@ struct FoodishApp: App {
    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(viewModel: viewModel)
         }
     }
 }

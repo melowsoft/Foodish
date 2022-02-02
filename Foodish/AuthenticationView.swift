@@ -183,7 +183,7 @@ struct AuthenticationView: View {
         }
         .edgesIgnoringSafeArea(.all)
         .fullScreenCover(isPresented: $showHome){
-            HomeView()
+            Home()
         }
     }
     
