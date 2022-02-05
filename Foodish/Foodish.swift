@@ -15,10 +15,11 @@ struct Foodish {
     }
     
     init() {
-       foods = Array<Food>()
+       foods = []
     }
     
-    struct Food {
+    struct Food: Identifiable {
+        var id = UUID()
         var name: String
         var price: Double
         var images: Array<String>

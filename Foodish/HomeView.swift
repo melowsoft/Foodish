@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct HomeView: View {
+    @StateObject var foodManager = FoodManager()
     @State var searchTerm: String = ""
     @State var activeMenu: String = "foods"
+    
+    private let generator = UISelectionFeedbackGenerator()
     
     var body: some View {
         ZStack {
@@ -37,6 +40,7 @@ struct HomeView: View {
                                 .frame(height: 30)
                         }
                         .font(.system(.largeTitle, design: .rounded).bold())
+                        .foregroundColor(Color.black)
                         
                         Spacer()
                     }
@@ -44,7 +48,10 @@ struct HomeView: View {
                     HStack {
                         Image(systemName: "magnifyingglass")
                             .font(.system(size: 18))
-                        TextField("Search", text: $searchTerm)
+                            .foregroundColor(.black)
+                        TextField("Search", text: $searchTerm){ editing in
+                            generator.selectionChanged()
+                        }
                             .foregroundColor(Color.black)
                             .autocapitalization(.none)
                     }
@@ -108,33 +115,10 @@ struct HomeView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     Spacer()
-                    HStack {
-                        VStack(spacing: 20) {
-                            
-                            Spacer()
-                            Text("Veggie tomato mix")
-                                .font(.system(.title2, design: .rounded).bold())
-                                .foregroundColor(.black)
-                                .multilineTextAlignment(.center)
-                            
-                            Text("N1,900")
-                                .font(.system(.title3, design: .rounded))
-                                .foregroundColor(Color(HomeViewConstant.activeColor))
-                                .bold()
+                    HStack(spacing: 30) {
+                        ForEach(foodManager.foods, id: \.id) { food in
+                            FoodCard(food: food)
                         }
-                        .padding(30)
-                        .padding(.bottom, 20)
-                        .frame(width: 220, height: 270)
-                        .background(Color.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
-                        .overlay(
-                            Image("dish-1")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 160, height: 160)
-                                .clipShape(Circle())
-                                .offset(y: -120)
-                        )
                         
                         Spacer()
                     }
@@ -163,3 +147,17 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
+
+struct Food: Identifiable, Decodable {
+    var id: String
+    var name: String
+    var price: Float
+    var images: Array<String>
+    var deliveryInfo: String
+    var createdAt: Date
+}
+
+let foods: Array<Food> = [
+    Food(id: "dfhgjklkhjgdas", name: "Veggie tomato mix", price: 1900.0, images: ["dish-1"], deliveryInfo: "", createdAt: Date()),
+    Food(id: "jhgfkhjsdfkjdsa", name: "Jollof rice and Plantain", price: 2000.0, images: ["dish-2"], deliveryInfo: "", createdAt: Date())
+   ]
